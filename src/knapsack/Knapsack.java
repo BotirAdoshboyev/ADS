@@ -44,8 +44,7 @@ public class Knapsack {
                 currItem.add(profit[index]);
                 currKnapsack.add(currItem);
                 included = currKnapsack;
-            }
-            else for (ArrayList<Integer> item : included) item.add(profit[index]);
+            } else for (ArrayList<Integer> item : included) item.add(profit[index]);
             included.addAll(excluded);
             return included;
         } else {
