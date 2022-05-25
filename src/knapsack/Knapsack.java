@@ -32,9 +32,7 @@ public class Knapsack {
     }
 
     static ArrayList<ArrayList<Integer>> solve(int[] weight, int capacity, int index, int[] profit) {
-        if (index < 0) {
-            return new ArrayList<>(); // base condition
-        }
+        if (index < 0) return new ArrayList<>(); // base condition
         if (weight[index] <= capacity) {
             ArrayList<ArrayList<Integer>> included = solve(weight, capacity - weight[index], index - 1, profit);
             ArrayList<ArrayList<Integer>> excluded = solve(weight, capacity, index - 1, profit);
@@ -47,9 +45,6 @@ public class Knapsack {
             } else for (ArrayList<Integer> item : included) item.add(profit[index]);
             included.addAll(excluded);
             return included;
-        } else {
-            return solve(weight, capacity, index - 1, profit);
-        }
-
+        } else return solve(weight, capacity, index - 1, profit);
     }
 }
