@@ -36,13 +36,15 @@ public class Knapsack {
             return new ArrayList<>(); // base condition
         }
         if (weight[index] <= capacity) {
-            ArrayList<ArrayList<Integer>> currKnapsack = new ArrayList<>();
-            ArrayList<Integer> currItem = new ArrayList<>();
-            currItem.add(profit[index]);
-            currKnapsack.add(currItem);
             ArrayList<ArrayList<Integer>> included = solve(weight, capacity - weight[index], index - 1, profit);
             ArrayList<ArrayList<Integer>> excluded = solve(weight, capacity, index - 1, profit);
-            if (included.isEmpty()) included = currKnapsack;
+            if (included.isEmpty()) {
+                ArrayList<ArrayList<Integer>> currKnapsack = new ArrayList<>();
+                ArrayList<Integer> currItem = new ArrayList<>();
+                currItem.add(profit[index]);
+                currKnapsack.add(currItem);
+                included = currKnapsack;
+            }
             else for (ArrayList<Integer> item : included) item.add(profit[index]);
             included.addAll(excluded);
             return included;

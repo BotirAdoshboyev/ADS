@@ -1,4 +1,4 @@
-package LinkedList;
+package linkedList;
 
 import java.util.Objects;
 
@@ -24,7 +24,8 @@ public class MyNode {
 
     MyNode next = null;
 
-    public MyNode() {}
+    public MyNode() {
+    }
 
     public MyNode(Integer value) {
         this.value = value;
@@ -93,6 +94,7 @@ public class MyNode {
     }
 
     static MyNode last = null;
+
     public static MyNode reverseRecursive(MyNode head) {
         if (head.next == null) {
             last = head;
@@ -111,7 +113,7 @@ public class MyNode {
         MyNode prev = null;
         int i = 0;
         while (i != index) {
-            if (curr == null) throw new RuntimeException("Index exceeded, index must be less than " + (i+1));
+            if (curr == null) throw new RuntimeException("Index exceeded, index must be less than " + (i + 1));
             prev = curr;
             curr = curr.next;
             i++;
@@ -172,12 +174,12 @@ public class MyNode {
     }
 
     /*
-    * input
-    * first: {1,2,3,4}
-    * second: {10,11,12,13,14,15}
-    * output
-    * {1,10,2,11,3,12,4,13,14,15}
-    * */
+     * input
+     * first: {1,2,3,4}
+     * second: {10,11,12,13,14,15}
+     * output
+     * {1,10,2,11,3,12,4,13,14,15}
+     * */
     public static MyNode zipListIterative(MyNode first, MyNode second) {
         MyNode firstCurr = first;
         MyNode secondCurr = second;

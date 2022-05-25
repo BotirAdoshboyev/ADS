@@ -1,4 +1,4 @@
-package LinkedList;
+package linkedList;
 
 public class LinkedListMain {
     public static void main(String[] args) {
@@ -46,8 +46,8 @@ public class LinkedListMain {
 
 
         // ZipList
-        MyNode res = MyNode.zipListRecursive(node1, node21);
+//        MyNode res = MyNode.zipListRecursive(node1, node21);
 //        MyNode res = MyNode.zipListIterative(node1, node21);
-        System.out.println(res);
+
     }
 }
